@@ -32,7 +32,7 @@ SendCoinsEntry::SendCoinsEntry(QWidget *parent) :
 
     // normal bitcoin address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying bitcoin address(es)
+    // just a label for displaying nigeriacoin address(es)
     ui->payTo_is->setFont(GUIUtil::bitcoinAddressFont());
 }
 

@@ -1,5 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2014 The Nigeriacoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +10,9 @@
 #include "net.h"
 #include "ui_interface.h"
 #include "util.h"
+#include <stdint.h>
 
+#include <stdint.h>
 #include <algorithm>
 #include <map>
 

@@ -63,7 +63,7 @@ public:
 };
 
 /**
- * Bitcoin RPC command dispatcher.
+ * Nigeriacoin RPC command dispatcher.
  */
 class CRPCTable
 {

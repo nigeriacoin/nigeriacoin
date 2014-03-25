@@ -6,7 +6,7 @@
 #define NOTIFICATOR_H
 
 #if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
+#include "nigeriacoin-config.h"
 #endif
 
 #include <QIcon>
@@ -14,9 +14,10 @@
 
 QT_BEGIN_NAMESPACE
 class QSystemTrayIcon;
-
+#if ! defined(__MINGW32__) && ! defined(__MINGW64__)
 #ifdef USE_DBUS
 class QDBusInterface;
+#endif
 #endif
 QT_END_NAMESPACE
 
@@ -65,10 +66,12 @@ private:
     QString programName;
     Mode mode;
     QSystemTrayIcon *trayIcon;
+#if ! defined(__MINGW32__) && ! defined(__MINGW64__)
 #ifdef USE_DBUS
     QDBusInterface *interface;
 
     void notifyDBus(Class cls, const QString &title, const QString &text, const QIcon &icon, int millisTimeout);
+#endif
 #endif
     void notifySystray(Class cls, const QString &title, const QString &text, const QIcon &icon, int millisTimeout);
 #ifdef Q_OS_MAC

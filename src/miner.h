@@ -9,6 +9,7 @@
 #include <stdint.h>
 
 class CBlock;
+
 class CBlockIndex;
 struct CBlockTemplate;
 class CReserveKey;
@@ -16,7 +17,7 @@ class CScript;
 class CWallet;
 
 /** Run the miner threads */
-void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads);
+void GenerateNigeriacoins(bool fGenerate, CWallet* pwallet, int nThreads);
 /** Generate a new block, without valid proof-of-work */
 CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn);
 CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey);

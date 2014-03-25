@@ -14,9 +14,11 @@
 #include <QSystemTrayIcon>
 #include <QTemporaryFile>
 #include <QVariant>
-#ifdef USE_DBUS
+#if ! defined(__MINGW32__) && ! defined(__MINGW64__)
+#ifdef USE_DBUS 
 #include <stdint.h>
 #include <QtDBus>
+#endif
 #endif
 // Include ApplicationServices.h after QtDbus to avoid redefinition of check().
 // This affects at least OSX 10.6. See /usr/include/AssertMacros.h for details.
@@ -37,14 +39,17 @@ Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, 
     programName(programName),
     mode(None),
     trayIcon(trayicon)
+#if ! defined(__MINGW32__) && ! defined(__MINGW64__)
 #ifdef USE_DBUS
     ,interface(0)
+#endif
 #endif
 {
     if(trayicon && trayicon->supportsMessages())
     {
         mode = QSystemTray;
     }
+#if ! defined(__MINGW32__) && ! defined(__MINGW64__)
 #ifdef USE_DBUS
     interface = new QDBusInterface("org.freedesktop.Notifications",
         "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
@@ -52,6 +57,7 @@ Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, 
     {
         mode = Freedesktop;
     }
+#endif
 #endif
 #ifdef Q_OS_MAC
     // check if users OS has support for NSUserNotification
@@ -79,11 +85,13 @@ Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, 
 
 Notificator::~Notificator()
 {
+#if ! defined(__MINGW32__) && ! defined(__MINGW64__)
 #ifdef USE_DBUS
     delete interface;
 #endif
+#endif
 }
-
+#if ! defined(__MINGW32__) && ! defined(__MINGW64__)
 #ifdef USE_DBUS
 
 // Loosely based on http://www.qtcentre.org/archive/index.php/t-25879.html
@@ -223,7 +231,7 @@ void Notificator::notifyDBus(Class cls, const QString &title, const QString &tex
     interface->callWithArgumentList(QDBus::NoBlock, "Notify", args);
 }
 #endif
-
+#endif
 void Notificator::notifySystray(Class cls, const QString &title, const QString &text, const QIcon &icon, int millisTimeout)
 {
     Q_UNUSED(icon);
@@ -296,10 +304,12 @@ void Notificator::notify(Class cls, const QString &title, const QString &text, c
 {
     switch(mode)
     {
+#if !defined(__MINGW32__) && !defined(__MINGW64__)
 #ifdef USE_DBUS
     case Freedesktop:
         notifyDBus(cls, title, text, icon, millisTimeout);
         break;
+#endif
 #endif
     case QSystemTray:
         notifySystray(cls, title, text, icon, millisTimeout);

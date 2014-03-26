@@ -1041,7 +1041,7 @@ bool GetTransaction(const uint256 &hash, CTransaction &txOut, uint256 &hashBlock
                 if (view.GetCoins(hash, coins))
                     nHeight = coins.nHeight;
             }
-            if (nHeight > 0)
+            if (nHeight >= 0)
                 pindexSlow = chainActive[nHeight];
         }
     }

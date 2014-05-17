@@ -1668,8 +1668,8 @@ Address: %4
     </message>
     <message>
         <location filename="../guiutil.cpp" line="+82"/>
-        <source>Enter a Nigeriacoin address (e.g. NQamLhXKt6LdfLfm1zQKUA4KeK88QPgipK)</source>
-        <translation>إدخال عنوانNigeriacoin (مثال :NQamLhXKt6LdfLfm1zQKUA4KeK88QPgipK)</translation>
+        <source>Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</source>
+        <translation>إدخال عنوانBitcoin (مثال :1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)</translation>
     </message>
 </context>
 <context>

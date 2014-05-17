@@ -2,8 +2,8 @@ dnl require autoconf 2.60 (AS_ECHO/AS_ECHO_N)
 AC_PREREQ([2.60])
 define(_CLIENT_VERSION_MAJOR, 0)
 define(_CLIENT_VERSION_MINOR, 9)
-define(_CLIENT_VERSION_REVISION, 0)
-define(_CLIENT_VERSION_BUILD, 1)
+define(_CLIENT_VERSION_REVISION, 1)
+define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2014)
 AC_INIT([Nigeriacoin],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[info@nigeriacoin.org],[nigeriacoin])
@@ -121,7 +121,6 @@ AC_PROG_CPP
 AC_PROG_CXXCPP
 AC_PROG_INSTALL
 AC_PROG_OBJC
-AC_PROG_LN_S
 m4_ifdef([AC_PROG_OBJCXX],[AC_PROG_OBJCXX])
 AC_PROG_MKDIR_P
 AC_PROG_SED
@@ -223,7 +222,6 @@ case $host in
      TARGET_OS=darwin
      LEVELDB_TARGET_FLAGS="TARGET_OS=Darwin"
      if  test x$cross_compiling != xyes; then
-       BUILD_OS=darwin
        AC_CHECK_PROG([PORT],port, port)
        if test x$PORT = xport; then
          dnl add default macports paths
@@ -240,17 +238,6 @@ case $host in
          CPPFLAGS="$CPPFLAGS -I$bdb_prefix/include"
          LIBS="$LIBS -L$bdb_prefix/lib"
        fi
-     else
-       case $build_os in
-         *darwin*)
-           BUILD_OS=darwin
-           ;;
-         *)
-           AC_PATH_TOOL([INSTALLNAMETOOL], [install_name_tool], install_name_tool)
-           AC_PATH_TOOL([OTOOL], [otool], otool)
-           AC_PATH_PROGS([GENISOIMAGE], [genisoimage mkisofs],genisoimage)
-           ;;
-       esac
      fi
 
      CPPFLAGS="$CPPFLAGS -DMAC_OSX"
@@ -638,8 +625,6 @@ if test x$nigeriacoin_enable_qt != xno; then
   AC_MSG_CHECKING([whether to build GUI with support for D-Bus])
   if test x$nigeriacoin_enable_qt_dbus != xno; then
     AC_DEFINE([USE_DBUS],[1],[Define if dbus support should be compiled in])
-  else
-    AC_DEFINE([USE_DBUS],[0],[Define if dbus support should be compiled in])
   fi
   AC_MSG_RESULT($nigeriacoin_enable_qt_dbus)
 
@@ -686,7 +671,6 @@ if test "x$use_tests$build_nigeriacoind$use_qt" = "xnonono"; then
 fi
 
 AM_CONDITIONAL([TARGET_DARWIN], [test x$TARGET_OS = xdarwin])
-AM_CONDITIONAL([BUILD_DARWIN], [test x$BUILD_OS = xdarwin])
 AM_CONDITIONAL([TARGET_WINDOWS], [test x$TARGET_OS = xwindows])
 AM_CONDITIONAL([ENABLE_WALLET],[test x$enable_wallet == xyes])
 AM_CONDITIONAL([USE_QRCODE], [test x$use_qr = xyes])

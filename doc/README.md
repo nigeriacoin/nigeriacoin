@@ -1,4 +1,4 @@
-Bitcoin 0.9.0 BETA
+Nigeriacoin 0.9.1 BETA
 =====================
 
 Copyright (c) 2009-2014 Bitcoin Developers
@@ -6,7 +6,7 @@ Copyright (c) 2009-2014 Bitcoin Developers
 
 Setup
 ---------------------
-[Bitcoin Core](http://nigeriacoin.org/en/download) is the original Bitcoin client and it builds the backbone of the network. However, it downloads and stores the entire history of Bitcoin transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once. If you would like the process to go faster you can [download the blockchain directly](https://nigeriacointalk.org/index.php?topic=145386.0).
+[Nigeriacoin](http://nigeriacoin.org/en/download) is the original Nigeriacoin client and it builds the backbone of the network. However, it downloads and stores the entire history of Nigeriacoin transactions (which is currently several GBs); depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once. 
 
 Running
 ---------------------
@@ -38,7 +38,7 @@ Drag Bitcoin-Qt to your applications folder, and then run Bitcoin-Qt.
 * See the documentation at the [Bitcoin Wiki](https://en.nigeriacoin.it/wiki/Main_Page)
 for help and more information.
 * Ask for help on [#nigeriacoin](http://webchat.freenode.net?channels=nigeriacoin) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=nigeriacoin).
-* Ask for help on the [BitcoinTalk](https://nigeriacointalk.org/) forums, in the [Technical Support board](https://nigeriacointalk.org/index.php?board=4.0).
+* Ask for help on the [BitcoinTalk](https://bitcointalk.org/) forums, in the [Technical Support board](https://bitcointalk.org/index.php?board=4.0).
 
 Building
 ---------------------

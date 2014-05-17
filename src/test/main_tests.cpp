@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 // Copyright (c) 2014 The Bitcoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+=======
+>>>>>>> 026a939bb683490c061d2278a7c2c0eb3f3666d0
 #include "core.h"
 #include "main.h"
 
